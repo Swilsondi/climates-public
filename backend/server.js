@@ -8,7 +8,11 @@ const helmet = require("helmet");
 
 // Middleware
 app.use(express.json());
-//Need to install cors. npm install cors and helmet
+// TODO: to install cors. npm install cors and helmet
+// TODO: fix routes
+// TODO: to take make logic for routes in controllers
+// TODO: to create models for each route
+// Security middleware
 app.use(helmet());
 app.use(cors());
 
