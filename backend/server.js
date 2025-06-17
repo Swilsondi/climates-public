@@ -23,8 +23,13 @@ const chatRoutes = require("./routes/chatRoutes");
 const postRoutes = require("./routes/postRoutes");
 //Importing notification routes
 const notificationRoutes = require("./routes/notificationRoutes");
+<<<<<<< HEAD
 //Importing location routes 
 const userLocations = require("./routes/userLocations");
+=======
+//Importing location routes
+const locationRoutes = require("./routes/locationRoutes");
+>>>>>>> 8b531ce (Adds location management functionality)
 
 const mongoose = require("mongoose");
 
@@ -38,15 +43,17 @@ async function startServer() {
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
     // Root route for users
-    app.use("/api/users", userRoutes);
+    app.use("/api/v1/users", userRoutes);
     // Root route for collaborations
-    app.use("/api/collaborations", collaborationRoutes);
+    app.use("/api/v1/collaborations", collaborationRoutes);
     // Root route for chats
-    app.use("/api/chats", chatRoutes);
+    app.use("/api/v1/chats", chatRoutes);
     // Root route for posts
-    app.use("/api/posts", postRoutes);
+    app.use("/api/v1/posts", postRoutes);
     // Root route for notifications
-    app.use("/api/notifications", notificationRoutes);
+    app.use("/api/v1/notifications", notificationRoutes);
+    // Root route for locations
+    app.use("/api/v1/locations", locationRoutes);
 
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
