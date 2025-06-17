@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
-const router = express.Router();
 const cors = require("cors");
 const helmet = require("helmet");
 
@@ -28,17 +27,16 @@ const notificationRoutes = require("./routes/notificationRoutes");
 const userLocations = require("./routes/userLocations");
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 async function startServer() {
   try {
+    await mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
-    app.locals.db = client.db(process.env.DB_NAME);
     // Root route for users
     app.use("/api/users", userRoutes);
     // Root route for collaborations
