@@ -21,6 +21,8 @@ const chatRoutes = require("./routes/chatRoutes");
 const postRoutes = require("./routes/postRoutes");
 //Importing notification routes
 const notificationRoutes = require("./routes/notificationRoutes");
+//Importing location routes 
+const userLocations = require("./routes/userLocations");
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URI, {
