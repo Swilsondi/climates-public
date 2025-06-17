@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 3000;
 const cors = require("cors");
 const helmet = require("helmet");
 
-
 // Middleware
 app.use(express.json());
 //Need to install cors. npm install cors and helmet
@@ -23,22 +22,17 @@ const chatRoutes = require("./routes/chatRoutes");
 const postRoutes = require("./routes/postRoutes");
 //Importing notification routes
 const notificationRoutes = require("./routes/notificationRoutes");
-<<<<<<< HEAD
-//Importing location routes 
-const userLocations = require("./routes/userLocations");
-=======
 //Importing location routes
 const locationRoutes = require("./routes/locationRoutes");
->>>>>>> 8b531ce (Adds location management functionality)
 
 const mongoose = require("mongoose");
 
 async function startServer() {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
