@@ -8,6 +8,7 @@ const cors = require("cors");
 
 // Middleware
 app.use(express.json());
+//Need to install cors. npm install cors
 app.use(cors());
 
 // Importing user routes
