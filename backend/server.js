@@ -7,13 +7,16 @@ mongoose.connect(process.env.MONGO_URI, {
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
+const router = express.Router();
+const cors = require("cors");
+const userRoutes = require("./routes/userRoutes");
 
 app.use(express.json());
 
 async function startServer() {
   try {
-    await mongoose.connection;
-    console.log("Conneccted successfully to MongoDB");
+    await mongoose.connect();
+    console.log("Connected successfully to MongoDB");
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
@@ -21,3 +24,5 @@ async function startServer() {
     next(err);
   }
 }
+
+startServer();
