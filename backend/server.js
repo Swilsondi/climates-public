@@ -5,16 +5,22 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const cors = require("cors");
 const helmet = require("helmet");
+const errorHandler = require("./middleware/errorHandler");
+const notFound = require("./middleware/notFound");
 
 // Middleware
 app.use(express.json());
+
 // TODO: to install cors. npm install cors and helmet
 // TODO: fix routes
 // TODO: to take make logic for routes in controllers
 // TODO: to create models for each route
+
 // Security middleware
 app.use(helmet());
 app.use(cors());
+app.use(errorHandler);
+app.use(notFound);
 
 // Importing user routes
 const userRoutes = require("./routes/userRoutes");
