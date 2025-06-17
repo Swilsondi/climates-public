@@ -5,10 +5,13 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const router = express.Router();
 const cors = require("cors");
+const helmet = require("helmet");
+
 
 // Middleware
 app.use(express.json());
-//Need to install cors. npm install cors
+//Need to install cors. npm install cors and helmet
+app.use(helmet());
 app.use(cors());
 
 // Importing user routes
@@ -32,9 +35,6 @@ mongoose.connect(process.env.MONGO_URI, {
 
 async function startServer() {
   try {
-    await mongoose.connect();
-    console.log("Connected successfully to MongoDB");
-    await client.db(process.env.DB_NAME).command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
@@ -51,10 +51,7 @@ async function startServer() {
     app.use("/api/notifications", notificationRoutes);
 
     app.listen(PORT, () => {
-      res.status(200).json({
-        success: true,
-        message: `Server is running on port ${PORT}`,
-      });
+      console.log(`Server is running on port ${PORT}`);
     });
   } catch (err) {
     console.error("Failed to connect to MongoDB", err);
