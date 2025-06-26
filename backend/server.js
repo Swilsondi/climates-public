@@ -15,6 +15,8 @@ app.use(express.json());
 // TODO: fix routes
 // TODO: to take make logic for routes in controllers
 // TODO: to create models for each route
+// TODO: to install bcrpyt on windows
+// TODO: to install jsonwebtoken on windows
 
 // Security middleware
 app.use(helmet());
