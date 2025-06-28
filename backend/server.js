@@ -11,7 +11,7 @@ const notFound = require("./middleware/notFound");
 // Middleware
 app.use(express.json());
 
-// TODO: to install cors. npm install cors and helmet
+// TODO: to install cors. npm install cors and helmet on mac
 // TODO: fix routes
 // TODO: to take make logic for routes in controllers
 // TODO: to create models for each route
